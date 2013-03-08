@@ -48,7 +48,7 @@ $query = mysql_query($sql,$cnx) or die (mysql_error());
 	<tr>
 	<th>Nivel de Acesso </th>
 	<td><select name="tipo">
-		<option value="<?php echo $tipo ?>" > <?php echo $tipo ?> </option>
+		<option value="<?=$tipo?>" > <?php echo $tipo ?> </option>
 		<option value="c" > -Usuário comum - </option>
 		<option value="a" > - Administrador - </option>
 		</select>
@@ -60,7 +60,6 @@ $query = mysql_query($sql,$cnx) or die (mysql_error());
 	</tr>
 	
 </table>
-
 
 </form>
 </div>

@@ -5,7 +5,7 @@
 /*Autor: Marciso Gonzalez Martines                             */
 /*e-mail: marciso.gonzalez@gmail.com                           */
 /***************************************************************/
-
+#pagina usada apenas para testes do modal do twitter bootstrap
 require_once "login.php";
 include_once 'db.php';
 ?>

@@ -38,11 +38,6 @@ if(isset($_POST['id']) and !empty($_POST['id'])){
     die("ID não encontrada");
 }
 
-#$cnx=mysql_connect("localhost","root",'')or
-#        die("Erro ao conectar com o banco de dados");
-
-#mysql_select_db("sistema",$cnx);
-
 $result=mysql_query($query,$cnx) or
         die("Erro na query: $query<br>".mysql_error());
 
@@ -52,7 +47,7 @@ if($result){
     $_SESSIO['errors']="Erro ao atualizar usuário!";
 }
 
-			echo '<script language="javascript" type="text/javascript">'; //adicionado Danilo(27/02/13). Volta para pagina tarefa.php com o ultimo filtro solicitado.
-			echo 'window.location="tarefa.php?listar='.$listar.' " '; 
-			echo '</script>';
+echo '<script language="javascript" type="text/javascript">'; //adicionado Danilo(27/02/13). Volta para pagina tarefa.php com o ultimo filtro solicitado.
+echo 'window.location="tarefa.php?listar='.$listar.' " '; 
+echo '</script>';
 ?>

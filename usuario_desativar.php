@@ -21,23 +21,19 @@ $id = $_GET['id'];
 $sql = "UPDATE users SET st='i' WHERE id='$id' ";
 echo $sql;
 if(mysql_query($sql,$cnx) or die (mysql_error() )){ // INICIO IF
-
-		echo '<script language="javascript" type="text/javascript">';
-		echo 'window.alert("Usuário desativado com Sucesso!");';  
-		echo 'window.location.href="admin.php";';
-		echo '</script>'; 
-
-} //FIM DO IF
-
-else{
-	
-		echo '<script language="javascript" type="text/javascript">';
-		echo 'window.alert("Erro na atualização!");';  
-		echo 'window.location.href="admin.php";';
-		echo '</script>'; 
-		
-	
+	#echo '<script language="javascript" type="text/javascript">';
+	#echo 'window.alert("Usuário desativado com Sucesso!");';  
+	#echo 'window.location.href="admin.php";';
+	#echo '</script>'; 
+	$_SESSION['info']="Usuario desativado com sucesso!";
 }
 
+else{
+	#echo '<script language="javascript" type="text/javascript">';
+	#echo 'window.alert("Erro na atualização!");';  
+	#echo 'window.location.href="admin.php";';
+	#echo '</script>'; 
+	$_SESSIO['errors']="Erro ao desativar o usuario!";
+}
 
 ?>
