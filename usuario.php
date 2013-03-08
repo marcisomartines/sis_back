@@ -27,7 +27,7 @@ include_once 'db.php';
  
  <body>
 <div align="center">
-<form name="form_usuario" method="POST" action="usuario_salva.php">
+<form method="POST" action="usuario_salva.php">
 <table  class="table">
 	<tr>
 	<th>Login </th>
