@@ -34,6 +34,7 @@ foreach($keys as $column){
 }
 echo "</tr>";
 //lista de usuario
+$obs=0;
 do{
         if($clientes['backup']!='Sim')
         {
@@ -42,13 +43,36 @@ do{
             foreach($clientes as $column){
                 if($count==7){
                 $count=0;
-                    $codigo=$clientes['codigo'];
-                    echo "<td>";
-                    include ('observacao.php');
-                    echo "</td>";
-                    }else{
-                        echo "<td>$column</td>";
-                        $count++;
+                echo "<td>";?>
+                <!-- Botão que inicia o modal -->
+                <a href="#myModal<?=$obs?>" role="button" class="btn" data-toggle="modal"><i class='icon-share' title="Observa&ccedil;&atilde;o"></i></a>
+                <!-- Modal -->
+                <div id="myModal<?=$obs?>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h3 id="myModalLabel">Observa&ccedil;&atilde;o</h3>
+                    </div>
+                    <div class="modal-body">
+                        <body>
+                            <div align="center">
+                                <table  class="table">
+                                    <tr>
+                                        <td><?=$column?></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </body>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
+                    </div>
+                </div><?php
+                echo "</td>";
+                $obs++;
+                }else{
+                    echo "<td>$column</td>";
+                    $count++;
+                    $obs++;
                 }
             }
             echo "</tr>";
@@ -56,19 +80,44 @@ do{
         else{
             echo "<tr bgcolor='#BFFFCF'>";//linhas em vermelho
             foreach($clientes as $column){
+                //se for a coluna da observação ele entra no if para imprimir o botaão e o modal
                 if($count==7){
                     $count=0;
-                    $codigo=$clientes['codigo'];
-                    echo "<td>";
-                    include ('observacao.php');
+                    echo "<td>";?>
+                    <!-- Botão que inicia o modal -->
+                    <a href="#myModal<?=$obs?>" role="button" class="btn" data-toggle="modal"><i class='icon-share' title="Observa&ccedil;&atilde;o"></i></a>
+
+                    <!-- Modal -->
+                    <div id="myModal<?=$obs?>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h3 id="myModalLabel">Observa&ccedil;&atilde;o</h3>
+                        </div>
+                        <div class="modal-body">
+                            <body>
+                                <div align="center">
+                                    <table  class="table">
+                                        <tr>
+                                            <td><?=$column?></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </body>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
+                        </div>
+                    </div><?php
                     echo "</td>";
+                    $obs++;
                     }else{
                         echo "<td>$column</td>";
                         $count++;
+                        $obs++;
+                    }
                 }
+                echo "</tr>";   
             }
-            echo "</tr>";   
-        }
 }while($clientes=  mysql_fetch_assoc($result));
 echo "</table>";
 ##rodapé padrão
