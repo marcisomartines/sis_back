@@ -111,17 +111,20 @@ echo "</table>";
   echo $nome;
   echo '</a>';
   echo '</div>';
+}
   echo '<div id="'.$nome.'" class="accordion-body collapse">';
   echo '<div class="accordion-inner">';
   echo   '<select name="id_serie">';
-  echo   '<option value="">    - Selecione uma S&eacuterie -    </option>';
+  echo   '<option value="">    - Selecione um Cliente -    </option>';
   echo    $query = 'select * from clientes';
           $resultado = mysql_query($query,$cnx);
            while($dados = mysql_fetch_assoc ($resultado)){
-               $id_serie = $dados['id_serie'];
-               $serie = $dados['serie'];
-            
-  echo '<option value='$id_serie'>$serie</option>';
+               
+               $id =     $dados['id'];
+               $codigo = $dados['codigo'];
+               $nome =   $dados['nome'];
+
+  echo '<option value="$id">'.$nome.'</option>';
   echo '</select>';
           
           }
@@ -130,7 +133,7 @@ echo "</table>";
   echo '</div>';
   echo '</div>'; 
   echo '</div>';
-}
+
 ?>
     </div>
   </div>
