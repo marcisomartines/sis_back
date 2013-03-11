@@ -22,7 +22,7 @@ $tipo=$users['tipo'];
 if($tipo=='a'){
     echo "<div class='input-append'>";
     echo "  <form action='' method='GET'>";
-    echo "      <select name='listar' selected>";
+    echo "      <select name='listar' selected onchange='this.form.submit();'>";
     echo "          <option value='todos'>Todos</option>";
     echo "          <option value='pendentes'>Pendentes</option>";
     echo "          <option value='finalizado'>Finalizado</option>";
@@ -34,7 +34,7 @@ if($tipo=='a'){
 }else{
     echo "<div class='input-append'>";
     echo "  <form action='' method='GET'>";
-    echo "      <select name='listar' selected>";
+    echo "      <select name='listar' selected onchange='this.form.submit();'>";
     echo "          <option value=''>Todos</option>";
     echo "          <option value='pendentes'>Pendentes</option>";
     echo "          <option value='finalizado'>Finalizado</option>";
