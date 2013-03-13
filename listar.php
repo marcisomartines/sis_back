@@ -30,7 +30,7 @@ foreach($keys as $column){
 }
 echo "</tr>";
 //lista de usuario
-$obs=0;
+$obs=0;//usado para diferenciar o modal de uma linha para o de outra linhas
 do{
         if($clientes['backup']!='Sim')
         {
@@ -38,7 +38,7 @@ do{
             echo "<tr bgcolor='#FF9999'>";//linhas em verde
             foreach($clientes as $column){
                 if($count==7){
-                $count=0;
+                $count=0;//usado para verificar em qual coluna o laço se encontra
                 echo "<td>";?>
                 <!-- Botão que inicia o modal -->
                 <a href="#myModal<?=$obs?>" role="button" class="btn" data-toggle="modal"><i class='icon-share' title="Observa&ccedil;&atilde;o"></i></a>

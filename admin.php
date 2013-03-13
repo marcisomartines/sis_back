@@ -36,7 +36,7 @@ if($tipo<>'a'){
 <div class="tabbable"> <!-- Only required for left/right tabs -->
   <ul class="nav nav-tabs">
     <li class="active"><a href="#tab1" data-toggle="tab"> Usuários </a></li>
-    <li><a href="#tab2" data-toggle="tab"> Esquema </a></li>
+    <li><a href="#tab2" data-toggle="tab"> Clientes </a></li>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="tab1">
@@ -94,47 +94,21 @@ if($tipo<>'a'){
 echo "</table>";
       ?>
     </div>
-    <div class="tab-pane" id="tab2">     
-<?php           
-            $sql = "select * from users where st='a' ";
-            $query = mysql_query($sql,$cnx) or die (mysql_error());
-            while ($dado = mysql_fetch_array($query)) {
-            $id =    $dado ['id'];
-            $nome =  $dado ['nome'];
-            $email = $dado ['email'];
-            $tipo =  $dado ['tipo'];
-            $st =    $dado ['st'];
-  echo '<div class="accordion" id="accordion2">';
-  echo '<div class="accordion-group">';
-  echo '<div class="accordion-heading">';
-  echo '<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#'.$nome.'">';
-  echo $nome;
-  echo '</a>';
-  echo '</div>';
-}
-  echo '<div id="'.$nome.'" class="accordion-body collapse">';
-  echo '<div class="accordion-inner">';
-  echo   '<select name="id_serie">';
-  echo   '<option value="">    - Selecione um Cliente -    </option>';
-  echo    $query = 'select * from clientes';
-          $resultado = mysql_query($query,$cnx);
-           while($dados = mysql_fetch_assoc ($resultado)){
-               
-               $id =     $dados['id'];
-               $codigo = $dados['codigo'];
-               $nome =   $dados['nome'];
+  <!--daqui para baixo cadastro de cliente-->
+    <div class="tab-pane" id="tab2">
+      <h3>Cadastro de novo cliente</h3>
+      <form method="post" action="cliente_cadastro.php">
+        <label for="codigo"> C&oacute;digo</label>
+        <input type="text" value="codigo">
 
-  echo '<option value="$id">'.$nome.'</option>';
-  echo '</select>';
-          
-          }
-          ;
-  echo '</div>';
-  echo '</div>';
-  echo '</div>'; 
-  echo '</div>';
-
-?>
+        <label for="nome">Empresa</label> 
+        <input type="text" value="nome">
+        <div class="control-group">
+          <div class="controls">
+            <button type="submit" class="btn btn-success" data-loading-text="Salvando...">Salvar</button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </div>

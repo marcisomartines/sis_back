@@ -43,7 +43,7 @@ if(isset($_SESSION['nome'])){
                         ##menu
                         if($tipo=='a'){
                         echo "<li><a href='admin.php'>Administrador</a></li>";
-
+                        echo "<li><a href='esquema.php'>Esquema</a></li>";
                         }
                         //fim da verificação do menu.    
                         ?>
