@@ -45,7 +45,7 @@ if($tipo<>'a'){
       if($tipo=='a'){
 //INICIO DO BOTÃO NOVO USUÁRIO-->
       require_once ("usuario.php");
-//FIM DOS BOTÃO-->
+//FIM DO BOTÃO-->
 
 
       echo "<table class='table table-bordered'>";
@@ -63,23 +63,33 @@ if($tipo<>'a'){
              $email = $dado ['email'];
              $tipo =  $dado ['tipo'];
              $st =    $dado ['st'];
+      //fazendo a comparação do ST do usuário para imprimir cor
+            if($st=='a'){
+            //se for st = 'a' adiciona a cor abaixo
+            $cor='#BFFFCF';  
 
-      echo "<tr>";
+            }
+            else{
+             //senão for ='a' adiciona a cor abaixo 
+             $cor='#FF9999';
+
+            }
+      echo "<tr bgcolor='".$cor."'>";
       echo "<td>$id </td>";
       echo "<td>$nome </td>";
       echo "<td>$email </td>";
       echo "<td>$tipo </td>";
       echo "<td><div align ='center'>";
-      echo "<a class='btn' href='usuario_editar.php?id=$id'><i class='icon-edit'></i></a>";
+      echo "<a class='btn' href='usuario_editar.php?id=$id'><i class='icon-edit' title='Editar'></i></a>";
             //fazendo a comparação do ST do usuário
             if($st=='a'){
             //se for st = 'a' então imprime a linha abaixo
-            echo "<a class='btn' href='usuario_desativar.php?id=$id'><i class='icon-minus-sign'></i></a>";  
+            echo "<a class='btn' href='usuario_desativar.php?id=$id'><i class='icon-minus-sign' title='Desativar'></i></a>";  
 
             }
             else{
              //senão for ='a' então imprime a linha abaixo 
-             echo "<a class='btn' href='usuario_ativar.php?id=$id'><i class='icon-ok-sign'></i></a>";
+             echo "<a class='btn' href='usuario_ativar.php?id=$id'><i class='icon-ok-sign' title='Ativar'></i></a>";
 
             }
             //fim da comparação. Verificar se não vai dar nenhum erro.
@@ -99,10 +109,10 @@ echo "</table>";
       <h3>Cadastro de novo cliente</h3>
       <form method="post" action="cliente_cadastro.php">
         <label for="codigo"> C&oacute;digo</label>
-        <input type="text" value="codigo">
+        <input type="text" name="codigo" id="codigo" required>
 
         <label for="nome">Empresa</label> 
-        <input type="text" value="nome">
+        <input type="text" name="empresa" id="empresa" required>
         <div class="control-group">
           <div class="controls">
             <button type="submit" class="btn btn-success" data-loading-text="Salvando...">Salvar</button>

@@ -44,7 +44,7 @@ $result=mysql_query($query,$cnx) or
 if($result){
     $_SESSION['info']="Cliente atualizado com sucesso!";
 }else {
-    $_SESSIO['errors']="Erro ao atualizar usuário!";
+    $_SESSION['errors']="Erro ao atualizar usuário!";
 }
 
 echo '<script language="javascript" type="text/javascript">'; //adicionado Danilo(27/02/13). Volta para pagina tarefa.php com o ultimo filtro solicitado.
