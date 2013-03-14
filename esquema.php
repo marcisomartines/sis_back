@@ -52,7 +52,7 @@ include_once 'db.php';
                $codigo = $dados['codigo'];
                $nome =   $dados['nome'];
 
-  echo '<option value="'.$id.'">'.$nome.'</option>';
+  echo '<option value="'.$id.'">'.$codigo.' '.$nome.'</option>';
           
           }
   echo '</select>';#FIM DO 1º SELECT 
@@ -70,7 +70,7 @@ include_once 'db.php';
                $codigo = $dados['codigo'];
                $nome =   $dados['nome'];
 
-  echo '<option value="'.$id.'">'.$nome.'</option>';
+  echo '<option value="'.$id.'">'.$codigo.' '.$nome.'</option>';
           
           }
   echo '</select>';#FIM 2º SELECT
@@ -88,7 +88,7 @@ include_once 'db.php';
                $codigo = $dados['codigo'];
                $nome =   $dados['nome'];
 
-  echo '<option value="'.$id.'">'.$nome.'</option>';
+  echo '<option value="'.$id.'">'.$codigo.' '.$nome.'</option>';
           
           }
   echo '</select>';#FIM 3º SELECT
@@ -106,7 +106,7 @@ include_once 'db.php';
                $codigo = $dados['codigo'];
                $nome =   $dados['nome'];
 
-  echo '<option value="'.$id.'">'.$nome.'</option>';
+  echo '<option value="'.$id.'">'.$codigo.' '.$nome.'</option>';
           
           }
   echo '</select>';#FIM 4º SELECT
@@ -124,18 +124,74 @@ include_once 'db.php';
                $codigo = $dados['codigo'];
                $nome =   $dados['nome'];
 
-  echo '<option value="'.$id.'">'.$nome.'</option>';
+  echo '<option value="'.$id.'">'.$codigo.' '.$nome.'</option>';
           
           }
   echo '</select>';#FIM 5º SELECT
+
+   /*
+    INICIO 6º SELECT.
+ */
+  echo   '<select name="id[]">';
+  echo   '<option value="">    - Selecione um Cliente -    </option>';
+  echo    $sql2 = "select*from clientes where clientes.backup <> 'Sim' and clientes.backup <> 'Nao' and tecnico = '' and st='a'";
+          $resultado = mysql_query($sql2,$cnx);
+           while($dados = mysql_fetch_assoc ($resultado)){
+               
+               $id =     $dados['id'];
+               $codigo = $dados['codigo'];
+               $nome =   $dados['nome'];
+
+  echo '<option value="'.$id.'">'.$codigo.' '.$nome.'</option>';
+          
+          }
+  echo '</select>';#FIM 6º SELECT
+
+   /*
+    INICIO 7º SELECT.
+ */
+  echo   '<select name="id[]">';
+  echo   '<option value="">    - Selecione um Cliente -    </option>';
+  echo    $sql2 = "select*from clientes where clientes.backup <> 'Sim' and clientes.backup <> 'Nao' and tecnico = '' and st='a'";
+          $resultado = mysql_query($sql2,$cnx);
+           while($dados = mysql_fetch_assoc ($resultado)){
+               
+               $id =     $dados['id'];
+               $codigo = $dados['codigo'];
+               $nome =   $dados['nome'];
+
+  echo '<option value="'.$id.'">'.$codigo.' '.$nome.'</option>';
+          
+          }
+  echo '</select>';#FIM 7º SELECT
+
+   /*
+    INICIO 8º SELECT.
+ */
+  echo   '<select name="id[]">';
+  echo   '<option value="">    - Selecione um Cliente -    </option>';
+  echo    $sql2 = "select*from clientes where clientes.backup <> 'Sim' and clientes.backup <> 'Nao' and tecnico = '' and st='a'";
+          $resultado = mysql_query($sql2,$cnx);
+           while($dados = mysql_fetch_assoc ($resultado)){
+               
+               $id =     $dados['id'];
+               $codigo = $dados['codigo'];
+               $nome =   $dados['nome'];
+
+  echo '<option value="'.$id.'">'.$codigo.' '.$nome.'</option>';
+          
+          }
+  echo '</select>';#FIM 8º SELECT
+
 ?>
 
 
 
 <label>Prazo para finalizar: </label>
-<input type='text' value='' name='prazo'>
+<input type='text' value='' name='prazo' required>
 <!--<input type="button" value="Data" onclick="displayCalendar(document.forms[0].prazo,'dd-mm-yyyy',this)">-->
 <button type="submit" class="btn btn-success">Salvar</button> 
+<button type="reset" class="btn">Limpar</button>
 
 <?php
 
@@ -145,7 +201,10 @@ include_once 'db.php';
   echo '</div>';
   echo '</div>'; 
   echo '</div>';
-  
+/*
+OBS: Não colocar o require footer.php pois quando adicionado a esta página ele da erro na hora de mandar
+para a o esquema_salvar.php. 
+*/  
 }
 ?>
 </html>
