@@ -60,7 +60,7 @@ do{
                         </body>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
+                        <button class="btn btn-success" data-dismiss="modal" aria-hidden="true">Fechar</button>
                     </div>
                 </div><?php
                 echo "</td>";
@@ -101,7 +101,7 @@ do{
                             </body>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
+                            <button class="btn btn-success" data-dismiss="modal" aria-hidden="true">Fechar</button>
                         </div>
                     </div><?php
                     echo "</td>";
