@@ -96,11 +96,12 @@ if($tipo=='a'){//se for o gerente mostra essa parte
     <label for="backup">Backup configurado: </label>
     <?php
         echo "<select name='backup'>";
-        if(strtolower($backup)=='sim')
+        echo "<option value=''> </option>";//opção colocada para caso queira limpar o conteudo ou não tenha nenhum tecnico atribuido
+        if(strtolower($backup)=='sim')//se o backup esta como sim, ele traz como padrão o sim ja selecionado
             echo "<option value='Sim' selected>Sim</option>";
         else
             echo "<option value='Sim'>Sim</option>";
-        if($backup=='Nao')
+        if($backup=='Nao')//se o backup esta como Nao, ele traz como padrão o Nao ja selecionado
             echo "<option value='Nao' selected>N&atilde;o</option>";
         else
             echo "<option value='Nao'>N&atilde;o</option>";
