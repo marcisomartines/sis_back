@@ -71,31 +71,41 @@ if($tipo=='a'){//se for o gerente mostra essa parte
 
     <label for="nome">Empresa</label>
     <input type="text" value="<?php echo $nome?>" readonly>
-    
+
     <label for="tecnico">Tecnico: </label>
-    <select name="tecnico">
-        <option value="<?php echo $tecnico?>"><?php echo $tecnico?></option>
-        <option value=""> </option>
-        <option value="Cabrera">Cabrera</option>
-        <option value="Danilo">Danilo</option>
-        <option value="Fernando">Fernando</option>
-        <option value="Joaquim">Joaquim</option>
-        <option value="Leandro">Leandro</option>
-        <option value="Luis">Luis</option>
-        <option value="Macedo">Macedo</option>
-        <option value="Marcelo">Marcelo</option>
-        <option value="Marciso">Marciso</option>
-    </select>
+    <?php
+    $oreia="SELECT nome FROM users WHERE st='a'";
+    $select=mysql_query($oreia,$cnx) or
+        die("Erro na query: $query<br>".mysql_error());
+
+    #listar usuarip
+    echo "<select name='tecnico'>";
+    while($chave = mysql_fetch_assoc ($select)){
+        $nome =  $chave['nome'];
+        if(strtolower($tecnico)== $nome)
+            echo '<option value="'.$nome.'" selected>'.ucfirst($nome).'</option>';    
+        else
+            echo '<option value="'.$nome.'">'.ucfirst($nome).'</option>';
+    }
+    echo "</select>";
+    ?>
     
     <label for="senha">Senha banco de dados: </label>
     <input type="text" name="senha" id="senha" value="<?php echo $senha?>">
     
     <label for="backup">Backup configurado: </label>
-    <select name="backup">
-        <option value="<?php echo $backup?>"><?php echo $backup?></option>
-        <option value="Nao">Não</option>
-        <option value="Sim">Sim</option>
-    </select>
+    <?php
+        echo "<select name='backup'>";
+        if(strtolower($backup)=='sim')
+            echo "<option value='Sim' selected>Sim</option>";
+        else
+            echo "<option value='Sim'>Sim</option>";
+        if($backup=='Nao')
+            echo "<option value='Nao' selected>N&atilde;o</option>";
+        else
+            echo "<option value='Nao'>N&atilde;o</option>";
+        echo "</select>";
+    ?>
     
     <label for="prazo">Prazo para finalizar: </label>
     <input type="text" value="<?php echo $prazo?>" readonly name="prazo">
