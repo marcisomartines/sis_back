@@ -16,7 +16,8 @@ if(!is_int($codigo)){//verifica se o codigo do cliente é um inteiro
 }
 $empresa=$_POST['empresa'];
 
-$query="INSERT INTO clientes(codigo,nome,st) VALUES ($codigo,'$empresa','a')";
+$query="INSERT INTO clientes(codigo,nome,tecnico,senha,backup,prazo,finalizado,st) 
+		VALUES ($codigo,'$empresa','','','','0000-00-00','0000-00-00','a')";
 
 $result=mysql_query($query,$cnx) or
         die("Erro na query: $query<br>".mysql_error());
