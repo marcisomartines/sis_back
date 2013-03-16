@@ -29,11 +29,11 @@ if(isset($_POST['id']) and !empty($_POST['id'])){
     if($teste=='sim')
     	$query="UPDATE clientes SET tecnico='$tecnico',senha='$senha',backup='$backup',prazo='$prazo',observacao='$observacao',st='$st' WHERE codigo=$id ";
     else if($teste=='nao' and (isset($senha)) and $backup=='Sim' and $finalizado='nao')
-    	$query="UPDATE clientes SET senha='$senha', backup='$backup',finalizado='$hoje',observacao='$observacao' WHERE codigo=$id";
+    	$query="UPDATE clientes SET senha='$senha', backup='$backup',finalizado='$hoje',observacao='$observacao',st='$st' WHERE codigo=$id";
     else if($teste=='nao' and (isset($senha)) and $backup=='Nao')
-        $query="UPDATE clientes SET senha='$senha', backup='$backup',observacao='$observacao' WHERE codigo=$id";
+        $query="UPDATE clientes SET senha='$senha', backup='$backup',observacao='$observacao', st='$st' WHERE codigo=$id";
     else if($teste=='nao' and $finalizado=='sim')
-    	$query="UPDATE clientes SET senha='$senha', backup='$backup',observacao='$observacao' WHERE codigo=$id";
+    	$query="UPDATE clientes SET senha='$senha', backup='$backup',observacao='$observacao', st='$st' WHERE codigo=$id";
 } else {
     echo $id;
     die("ID não encontrada");
