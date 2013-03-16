@@ -21,12 +21,13 @@ $hoje=date("Y-m-j");
 $prazo=implode("-",array_reverse(explode("-",$prazo)));
 $observacao=$_POST['observacao'];
 $teste=$_POST['teste'];
+$st=$_POST['status'];
 
 if(isset($_POST['id']) and !empty($_POST['id'])){
     $id=$_POST['id'];
     #echo $prazo;
     if($teste=='sim')
-    	$query="UPDATE clientes SET tecnico='$tecnico',senha='$senha',backup='$backup',prazo='$prazo',observacao='$observacao' WHERE codigo=$id ";
+    	$query="UPDATE clientes SET tecnico='$tecnico',senha='$senha',backup='$backup',prazo='$prazo',observacao='$observacao',st='$st' WHERE codigo=$id ";
     else if($teste=='nao' and (isset($senha)) and $backup=='Sim' and $finalizado='nao')
     	$query="UPDATE clientes SET senha='$senha', backup='$backup',finalizado='$hoje',observacao='$observacao' WHERE codigo=$id";
     else if($teste=='nao' and (isset($senha)) and $backup=='Nao')

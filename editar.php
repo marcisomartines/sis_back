@@ -108,6 +108,20 @@ if($tipo=='a'){//se for o gerente mostra essa parte
             echo "<option value='Nao'>N&atilde;o</option>";
         echo "</select>";
     ?>
+    <!--Mostra a sistuação do cliente, a=ativo e c=inativo-->
+    <label for="status">Situa&ccedil;&atilde;o do cliente: </label>
+    <?php
+        echo "<select name='status'>";
+        if(strtolower($backup)=='a')//se o esta ativo traz o sim 
+            echo "<option value='a' selected>Ativo</option>";
+        else
+            echo "<option value='a'>Ativo</option>";
+        if($backup=='Nao')//se o backup esta como Nao, ele traz como padrão o Nao ja selecionado
+            echo "<option value='c' selected>Inativo</option>";
+        else
+            echo "<option value='c'>Inativo</option>";
+        echo "</select>";
+    ?>
     
     <label for="prazo">Prazo para finalizar: </label>
     <input type="text" value="<?php echo $prazo?>" readonly name="prazo">
