@@ -80,6 +80,7 @@ if($tipo=='a'){//se for o gerente mostra essa parte
 
     #listar usuarip
     echo "<select name='tecnico'>";
+    echo "<option value=''></option>";
     while($chave = mysql_fetch_assoc ($select)){
         $nome =  $chave['nome'];
         if(strtolower($tecnico)== $nome)

@@ -183,13 +183,15 @@ include_once 'db.php';
           }
   echo '</select>';#FIM 8º SELECT
 
+$form++;
+
 ?>
 
 
 
-<label>Prazo para finalizar: </label>
-<input type='text' value='' name='prazo' required>
-<!--<input type="button" value="Data" onclick="displayCalendar(document.forms[0].prazo,'dd-mm-yyyy',this)">-->
+
+<input type='text' name='prazo'>
+<input type="button" value="Data" onclick="displayCalendar(document.forms['<?php echo $form-1 ?>'].prazo,'dd-mm-yyyy',this)">
 <button type="submit" class="btn btn-success">Salvar</button> 
 <button type="reset" class="btn">Limpar</button>
 
@@ -201,10 +203,7 @@ include_once 'db.php';
   echo '</div>';
   echo '</div>'; 
   echo '</div>';
-/*
-OBS: Não colocar o require footer.php pois quando adicionado a esta página ele da erro na hora de mandar
-para a o esquema_salvar.php. 
-*/  
+  
 }
 ?>
 </html>

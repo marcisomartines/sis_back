@@ -16,10 +16,6 @@ if(!isset($_POST['form_login'])){
     $nome=$_POST['nome'];
     $password=$_POST['password'];
     
-    #$cnx=mysql_connect('localhost','root')or
-    #        die("Erro ao conectar com o banco dados.");
-    #mysql_select_db('sistema',$cnx) or
-    #        die("Erro ao selecionar o banco de dados");
     $query="SELECT nome FROM users WHERE nome='$nome' and password=MD5('$password') and st='a'";
     $result=mysql_query($query) or
         die("Erro na query: $query".mysql_error());
