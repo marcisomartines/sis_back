@@ -183,7 +183,8 @@ include_once 'db.php';
           }
   echo '</select>';#FIM 8º SELECT
 
-$form++;
+$form++; //diferenciar a quantidade do form no displayCalendar  
+// usei $form-1 para iniciar no zero.
 
 ?>
 
