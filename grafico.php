@@ -11,7 +11,7 @@ $sql=mysql_query("SELECT * FROM clientes WHERE st='a'");
 $tudo=mysql_num_rows($sql);
 $sql=mysql_query("SELECT * FROM clientes WHERE backup='Sim' and st='a'");
 $sim=mysql_num_rows($sql);
-$sql=mysql_query("SELECT * FROM clientes WHERE backup='Nao' or backup='' and tecnico!='' and st='a'");
+$sql=mysql_query("SELECT * FROM clientes WHERE (backup='Nao' or backup='') and tecnico!='' and st='a'");
 $nao=mysql_num_rows($sql);
 $sql=mysql_query("SELECT * FROM clientes WHERE tecnico='' and backup='' and st='a'");
 $falta=mysql_num_rows($sql);
