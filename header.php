@@ -53,6 +53,7 @@ if(isset($_SESSION['nome'])){
                         <li><a href="tarefa.php">Tarefa</a></li>
                         <li><a href="listar.php">Listar</a></li>
                         <li><a href="grafico.php">Grafico</a></li>
+                        <li><a href="contagem.php">Relatório</a></li>
                         <li><a href="altera.php">Alterar Senha</a></li>
                         <li><a href="logoff.php">Logoff</a></li>
                     </ul>

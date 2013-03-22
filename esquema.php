@@ -17,7 +17,19 @@ require_once("header.php");
 require_once "login.php";
 include_once 'db.php';
 
-
+$usuario2=$_SESSION['nome'];
+$query2="SELECT tipo FROM users WHERE nome='$usuario2'";
+$result2= mysql_query($query2,$cnx) or
+        die("Erro na query: $query2".myssql_error());
+$users=mysql_fetch_assoc($result2);
+$tipo=$users['tipo'];
+##titulo
+if($tipo<>'a'){
+  echo    "<div class='alert alert-error'>";
+  echo " Desculpe área reservada somente para o administrador do sistema";
+  exit();
+  echo    "</div>";
+}
 
             $sql = "select * from users where st='a' ";
             $query = mysql_query($sql,$cnx) or die (mysql_error());
